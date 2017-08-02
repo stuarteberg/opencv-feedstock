@@ -2,7 +2,7 @@
 {% set filename = "opencv2-%s.zip" % version %}
 
 package:
-  name: opencv
+  name: opencv-nopython
   version: {{ version }}
 
 source:
@@ -14,15 +14,12 @@ source:
     - osx_rpath.patch  # [osx]
 
 build:
-  number: 1
-  skip: true  # [not py27]
+  number: 0
 
 requirements:
   build:
     - toolchain
     - cmake
-    - python
-    - numpy x.x
     - eigen 3.2.*
     - jasper   # [unix]
     - zlib 1.2*
@@ -31,8 +28,6 @@ requirements:
     - libpng 1.6*
 
   run:
-    - python
-    - numpy x.x
     - jasper   # [unix]
     - zlib 1.2*
     - jpeg 9*
@@ -40,9 +35,6 @@ requirements:
     - libpng 1.6*
 
 test:
-  imports:
-    - cv2
-    - cv2.cv
   commands:
     # Verify dynamic libraries.
     {% set opencv_libs = [

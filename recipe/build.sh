@@ -27,15 +27,12 @@ cmake -LAH ..                                                            \
     -DBUILD_OPENEXR=1                                                    \
     -DBUILD_JASPER=0                                                     \
     -DBUILD_JPEG=0                                                       \
-    -DPYTHON_EXECUTABLE=$PREFIX/bin/python${PY_VER}                      \
-    -DPYTHON_INCLUDE_PATH=$PREFIX/include/python${PY_VER}                \
-    -DPYTHON_LIBRARY=$PREFIX/lib/libpython${PY_VER}.$DYNAMIC_EXT         \
-    -DPYTHON_PACKAGES_PATH=$SP_DIR                                       \
+    -DBUILD_opencv_python=0                                              \
     -DWITH_CUDA=0                                                        \
     -DWITH_OPENCL=0                                                      \
     -DWITH_OPENNI=0                                                      \
     -DWITH_FFMPEG=0                                                      \
     -DCMAKE_INSTALL_PREFIX=$PREFIX
 
-make
+make -j${CPU_COUNT}
 make install
