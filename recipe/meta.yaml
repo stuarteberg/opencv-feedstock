@@ -14,7 +14,7 @@ source:
     - osx_rpath.patch  # [osx]
 
 build:
-  number: 0
+  number: 1
 
 requirements:
   build:
@@ -22,17 +22,17 @@ requirements:
     - cmake
     - eigen 3.2.*
     - jasper   # [unix]
-    - zlib 1.2*
+    - zlib 1.2.8
     - jpeg 9*
     - libtiff 4.0.*
-    - libpng 1.6*
+    - libpng 1.6.28
 
   run:
     - jasper   # [unix]
-    - zlib 1.2*
+    - zlib 1.2.8
     - jpeg 9*
     - libtiff 4.0.*
-    - libpng 1.6*
+    - libpng >=1.6.28,<1.7
 
 test:
   commands:
