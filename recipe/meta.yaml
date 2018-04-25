@@ -22,14 +22,14 @@ requirements:
     - cmake
     - eigen 3.2.*
     - jasper   # [unix]
-    - zlib 1.2.8
+    - zlib >=1.2.8,<=1.2.11
     - jpeg >=9b,<10a0
     - libtiff 4.0.*
     - libpng 1.6.28
 
   run:
     - jasper   # [unix]
-    - zlib 1.2.8
+    - zlib >=1.2.8,<=1.2.11
     - jpeg >=9b,<10a0 # Note: '9*' is not sufficient any more.
                       # Conda now considers '9*' to mean "9 <= x < 10",
                       # but '9a' and '9b' are treated as 'alpha' and 'beta' versions, and therefore < 9.0
