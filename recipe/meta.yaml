@@ -28,17 +28,23 @@ package:
   version: {{ version }}
 
 source:
-  - url: https://github.com/opencv/opencv/archive/{{ version }}.tar.gz
-    fn: opencv-{{ version }}.tar.gz
-    sha256: 9ccb2192d7e8c03c58fee07051364d94ed7599363f3b0dce1c5e6cc11c1bb0ec
+#  - url: https://github.com/opencv/opencv/archive/{{ version }}.tar.gz
+#    fn: opencv-{{ version }}.tar.gz
+#    sha256: 9ccb2192d7e8c03c58fee07051364d94ed7599363f3b0dce1c5e6cc11c1bb0ec
+
+  # Greg's branch
+  # See https://github.com/opencv/opencv/pull/16614
+  - git_url: https://github.com/GFleishman/opencv
+    git_tag: estimateTranslation3D
+
   - url: https://github.com/opencv/opencv_contrib/archive/{{ version }}.tar.gz
     fn: opencv_contrib-{{ version }}.tar.gz
     sha256: 8a6b5661611d89baa59a26eb7ccf4abb3e55d73f99bb52d8f7c32265c8a43020
     folder: opencv_contrib
 
 build:
-  number: 2
-  string: py{{ PY_VER_MAJOR }}{{ PY_VER_MINOR }}_{{ PKG_BUILDNUM }}
+  number: 1000
+  string: py{{ PY_VER_MAJOR }}{{ PY_VER_MINOR }}_{{ PKG_BUILDNUM }}_{{estimateTranslation3D}}
   # Python2.7 support dropped: https://github.com/opencv/opencv/issues/8481
   skip: true  # [win and py27]
   run_exports:
