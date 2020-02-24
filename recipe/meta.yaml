@@ -32,10 +32,10 @@ source:
 #    fn: opencv-{{ version }}.tar.gz
 #    sha256: 9ccb2192d7e8c03c58fee07051364d94ed7599363f3b0dce1c5e6cc11c1bb0ec
 
-  # Greg's branch
+  # Greg's branch, but rebased onto 4.2.0
   # See https://github.com/opencv/opencv/pull/16614
-  - git_url: https://github.com/GFleishman/opencv
-    git_tag: estimateTranslation3D
+  - git_url: https://github.com/stuarteberg/opencv
+    git_tag: estimateTranslation3D-4.2
 
   - url: https://github.com/opencv/opencv_contrib/archive/{{ version }}.tar.gz
     fn: opencv_contrib-{{ version }}.tar.gz
